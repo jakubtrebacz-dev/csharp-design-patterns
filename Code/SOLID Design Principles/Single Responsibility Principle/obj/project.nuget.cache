@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5YTn3dov/rHiedOrhTDlQEzJ22SmcGOVsqkmjc6shxjysxA0sBGScsjAn34mlxaXYGZsNlNcm/Y2i2fpjoHZcA==",
+  "success": true,
+  "projectFilePath": "C:\\Repos\\csharp-design-patterns\\Code\\SOLID Design Principles\\Single Responsibility Principle\\SOLID.SingleResponsibilityPrinciple.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jakub Trebacz\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
+  ],
+  "logs": []
+}
