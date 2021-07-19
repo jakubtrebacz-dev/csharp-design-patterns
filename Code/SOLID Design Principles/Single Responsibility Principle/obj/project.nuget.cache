@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4cw/RJsFv+oJ+x32tEzFxeB4o9whLzKc5RzWmOgPb8CTfxMDhvQ2P1pqA6o+yzknlXNuy6lXLr4n2VGwM8+p+Q==",
+  "dgSpecHash": "jer2dirwBVwTejfjtHSUfCg7X9QjISZdwA8JnfBHsd1/rjVdRE1xhd2kUOIVttfmS7C4vUd6XY6CfVmiXIgWQw==",
   "success": true,
-  "projectFilePath": "C:\\Repos\\csharp-design-patterns\\Code\\SOLID Design Principles\\Single Responsibility Principle\\Single Responsibility Principle.csproj",
+  "projectFilePath": "C:\\Repos\\csharp-design-patterns\\Code\\SOLID Design Principles\\Single Responsibility Principle\\SOLID.SingleResponsibilityPrinciple.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

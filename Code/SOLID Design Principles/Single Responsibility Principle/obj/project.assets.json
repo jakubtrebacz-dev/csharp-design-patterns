@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\csharp-design-patterns\\Code\\SOLID Design Principles\\Single Responsibility Principle\\Single Responsibility Principle.csproj",
-      "projectName": "Single Responsibility Principle",
-      "projectPath": "C:\\Repos\\csharp-design-patterns\\Code\\SOLID Design Principles\\Single Responsibility Principle\\Single Responsibility Principle.csproj",
+      "projectUniqueName": "C:\\Repos\\csharp-design-patterns\\Code\\SOLID Design Principles\\Single Responsibility Principle\\SOLID.SingleResponsibilityPrinciple.csproj",
+      "projectName": "SOLID.SingleResponsibilityPrinciple",
+      "projectPath": "C:\\Repos\\csharp-design-patterns\\Code\\SOLID Design Principles\\Single Responsibility Principle\\SOLID.SingleResponsibilityPrinciple.csproj",
       "packagesPath": "C:\\Users\\Jakub Trebacz\\.nuget\\packages\\",
       "outputPath": "C:\\Repos\\csharp-design-patterns\\Code\\SOLID Design Principles\\Single Responsibility Principle\\obj\\",
       "projectStyle": "PackageReference",
