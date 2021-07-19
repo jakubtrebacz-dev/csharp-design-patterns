@@ -25,15 +25,26 @@ namespace SOLID.SingleResponsibilityPrinciple
         {
             return string.Join(Environment.NewLine, entires);
         }
+    }
 
-        // This violates single resposibility principle
-        public void Save(string filename)
+    public class Persistance
+    {
+        public void SaveToFile(string content, string fileName, bool overwrite = false)
         {
-            File.WriteAllText(filename, ToString());
+            if (overwrite || !File.Exists(fileName))
+            {
+                File.WriteAllText(fileName, content);
+            }
+        }
+
+        public string LoadFromFile(string fileName)
+        {
+            string content = File.ReadAllText(fileName);
+            return content;
         }
     }
 
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -42,7 +53,10 @@ namespace SOLID.SingleResponsibilityPrinciple
             journal.AddEntry("Today I'm documenting my knowledge");
             journal.AddEntry("It's going great");
 
-            Console.WriteLine(journal); // This works because we have override ToString
+            Console.WriteLine(journal);
+
+            Persistance journalPersistance = new Persistance();
+            journalPersistance.SaveToFile(journal.ToString(), "firstJournal.txt");
         }
     }
 }
