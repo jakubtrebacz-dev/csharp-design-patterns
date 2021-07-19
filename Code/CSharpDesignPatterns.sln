@@ -3,9 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SOLID Design Principles", "SOLID Design Principles", "{C3D7DF5D-2828-4A88-B48B-A311373BE221}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Single Responsibility Principle", "SOLID Design Principles\Single Responsibility Principle\Single Responsibility Principle.csproj", "{B189E934-CFC5-4031-9C90-10CA377706EF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B189E934-CFC5-4031-9C90-10CA377706EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B189E934-CFC5-4031-9C90-10CA377706EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B189E934-CFC5-4031-9C90-10CA377706EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B189E934-CFC5-4031-9C90-10CA377706EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B189E934-CFC5-4031-9C90-10CA377706EF} = {C3D7DF5D-2828-4A88-B48B-A311373BE221}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DBE14CA-D2FC-4874-8F13-63C978A5A82E}
