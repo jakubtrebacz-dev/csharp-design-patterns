@@ -33,35 +33,38 @@ namespace SOLID.OpenClosePrinciple
         }
     }
 
-    public class ProductFilter
+    public interface ISpecification<T> 
     {
-        public IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Size size)
+        bool IsSatisfied(T t);
+    }
+
+    public interface IFilter<T>
+    {
+        IEnumerable<T> Filter(IEnumerable<T> product, ISpecification<T> specification);
+    }
+
+    public class ColourSpecification : ISpecification<Product>
+    {
+        private Colour colour;
+
+        public ColourSpecification(Colour colour)
         {
-            foreach (Product product in products)
-            {
-                if (product.Size == size)
-                {
-                    yield return product;
-                }
-            }
+            this.colour = colour;
         }
 
-        public IEnumerable<Product> FilterByColour(IEnumerable<Product> products, Colour colour)
+        public bool IsSatisfied(Product t)
         {
-            foreach (Product product in products)
-            {
-                if (product.Colour == colour)
-                {
-                    yield return product;
-                }
-            }
+            return t.Colour == colour;
         }
+    }
 
-        public IEnumerable<Product> FilterBySizeAndColour(IEnumerable<Product> products, Size size, Colour colour)
+    public class ProductFilter : IFilter<Product>
+    {
+        public IEnumerable<Product> Filter(IEnumerable<Product> products, ISpecification<Product> specification)
         {
             foreach (Product product in products)
             {
-                if (product.Size == size && product.Colour == colour)
+                if (specification.IsSatisfied(product))
                 {
                     yield return product;
                 }
@@ -82,7 +85,7 @@ namespace SOLID.OpenClosePrinciple
             ProductFilter productFilter = new ProductFilter();
 
             Console.WriteLine("Green products (old): ");
-            foreach (Product product in productFilter.FilterByColour(products, Colour.Green))
+            foreach (Product product in productFilter.Filter(products, new ColourSpecification(Colour.Green)))
             {
                 Console.WriteLine($"- {product.Name} is {product.Colour}");
             }
