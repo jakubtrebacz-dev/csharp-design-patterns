@@ -58,6 +58,37 @@ namespace SOLID.OpenClosePrinciple
         }
     }
 
+    public class SizeSpecification : ISpecification<Product>
+    {
+        private Size size;
+
+        public SizeSpecification(Size size)
+        {
+            this.size = size;
+        }
+
+        public bool IsSatisfied(Product t)
+        {
+            return t.Size == size;
+        }
+    }
+
+    public class AndSpecification<T> : ISpecification<T>
+    {
+        private ISpecification<T> first, second;
+
+        public AndSpecification(ISpecification<T> first, ISpecification<T> second)
+        {
+            this.first = first ?? throw new ArgumentNullException(paramName: nameof(first));
+            this.second = second ?? throw new ArgumentNullException(paramName: nameof(second));
+        }
+
+        public bool IsSatisfied(T t)
+        {
+            return first.IsSatisfied(t) && second.IsSatisfied(t);
+        }
+    }
+
     public class ProductFilter : IFilter<Product>
     {
         public IEnumerable<Product> Filter(IEnumerable<Product> products, ISpecification<Product> specification)
@@ -84,10 +115,21 @@ namespace SOLID.OpenClosePrinciple
 
             ProductFilter productFilter = new ProductFilter();
 
-            Console.WriteLine("Green products (old): ");
+            Console.WriteLine("Green products: ");
             foreach (Product product in productFilter.Filter(products, new ColourSpecification(Colour.Green)))
             {
                 Console.WriteLine($"- {product.Name} is {product.Colour}");
+            }
+
+            Console.WriteLine("Large red products: ");
+            foreach (Product product in productFilter
+                .Filter(products, 
+                new AndSpecification<Product>(
+                    new ColourSpecification(Colour.Red),
+                    new SizeSpecification(Size.Large)
+                    )))
+            {
+                Console.WriteLine($"- {product.Name} is {product.Colour.ToString().ToLower()} and {product.Size.ToString().ToLower()}");
             }
         }
     }
