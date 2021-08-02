@@ -35,11 +35,22 @@ namespace SOLID.OpenClosePrinciple
 
     public class ProductFilter
     {
-        public static IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Size size)
+        public IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Size size)
         {
             foreach (Product product in products)
             {
                 if (product.Size == size)
+                {
+                    yield return product;
+                }
+            }
+        }
+
+        public IEnumerable<Product> FilterByColour(IEnumerable<Product> products, Colour colour)
+        {
+            foreach (Product product in products)
+            {
+                if (product.Colour == colour)
                 {
                     yield return product;
                 }
@@ -58,7 +69,12 @@ namespace SOLID.OpenClosePrinciple
             Product[] products = { apple, tree, house };
 
             ProductFilter productFilter = new ProductFilter();
-            Console.WriteLine("Green products (old): "); 
+
+            Console.WriteLine("Green products (old): ");
+            foreach (Product product in productFilter.FilterByColour(products, Colour.Green))
+            {
+                Console.WriteLine($"- {product.Name} is {product.Colour}");
+            }
         }
     }
 }
