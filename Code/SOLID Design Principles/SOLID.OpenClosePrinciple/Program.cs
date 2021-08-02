@@ -56,6 +56,17 @@ namespace SOLID.OpenClosePrinciple
                 }
             }
         }
+
+        public IEnumerable<Product> FilterBySizeAndColour(IEnumerable<Product> products, Size size, Colour colour)
+        {
+            foreach (Product product in products)
+            {
+                if (product.Size == size && product.Colour == colour)
+                {
+                    yield return product;
+                }
+            }
+        }
     }
 
     public class Program
